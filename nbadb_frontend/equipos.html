@@ -1,0 +1,118 @@
+ARCHIVO 3: equipos.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos - NBA Analytics Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="equipos">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="https://a.espncdn.com/i/teamlogos/nba/500/nba.png" alt="NBA Logo">
+                <span>Analytics Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="equipos.html" class="nav-link active">Equipos</a></li>
+                <li class="nav-item"><a href="partidos.html" class="nav-link">Partidos</a></li>
+                <li class="nav-item"><a href="clasificacion.html" class="nav-link">Clasificación</a></li>
+                <li class="nav-item"><a href="estadisticas.html" class="nav-link">Estadísticas</a></li>
+                <li class="nav-item"><a href="predicciones.html" class="nav-link">Predicciones</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn" title="Cambiar tema">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>⚙️ Filtros</h3>
+            </div>
+            <div class="sidebar-content">
+                <div class="filter-group">
+                    <label for="temporada-select">🏆 Temporada</label>
+                    <select id="temporada-select" class="filter-select">
+                        <option value="">Cargando...</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="conferencia-filter">🏀 Conferencia</label>
+                    <select id="conferencia-filter" class="filter-select">
+                        <option value="">Todas</option>
+                        <option value="1">Eastern</option>
+                        <option value="2">Western</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="division-filter">📍 División</label>
+                    <select id="division-filter" class="filter-select">
+                        <option value="">Todas</option>
+                        <option value="1">Atlantic</option>
+                        <option value="2">Central</option>
+                        <option value="3">Southeast</option>
+                        <option value="4">Northwest</option>
+                        <option value="5">Pacific</option>
+                        <option value="6">Southwest</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="btn-aplicar-filtros">✨ Aplicar Filtros</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="header-section">
+                <h1>🏀 Equipos NBA</h1>
+                <p class="subtitle">Todos los equipos de la NBA con información detallada</p>
+            </section>
+
+            <!-- Teams Grid -->
+            <section class="teams-section">
+                <div id="teams-list" class="teams-grid">
+                    <div class="loading">Cargando equipos...</div>
+                </div>
+            </section>
+
+            <!-- Teams Table -->
+            <section class="data-table-section">
+                <h2 class="section-title">📋 Tabla de Equipos</h2>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Equipo</th>
+                                <th>Abreviatura</th>
+                                <th>Ciudad</th>
+                                <th>Conferencia</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teams-tbody">
+                            <tr><td colspan="5" class="text-center">Cargando equipos...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 NBA Analytics Pro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
+

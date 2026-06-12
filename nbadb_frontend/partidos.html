@@ -1,0 +1,89 @@
+ARCHIVO 6: partidos.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partidos - NBA Analytics Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="partidos">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="https://a.espncdn.com/i/teamlogos/nba/500/nba.png" alt="NBA Logo">
+                <span>Analytics Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="equipos.html" class="nav-link">Equipos</a></li>
+                <li class="nav-item"><a href="partidos.html" class="nav-link active">Partidos</a></li>
+                <li class="nav-item"><a href="clasificacion.html" class="nav-link">Clasificación</a></li>
+                <li class="nav-item"><a href="estadisticas.html" class="nav-link">Estadísticas</a></li>
+                <li class="nav-item"><a href="predicciones.html" class="nav-link">Predicciones</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn" title="Cambiar tema">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>⚙️ Filtros</h3>
+            </div>
+            <div class="sidebar-content">
+                <div class="filter-group">
+                    <label for="temporada-filter">🏆 Temporada</label>
+                    <select id="temporada-filter" class="filter-select">
+                        <option value="">Cargando...</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="equipo-filter">🏀 Equipo</label>
+                    <select id="equipo-filter" class="filter-select">
+                        <option value="">Todos los equipos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="fecha-inicio">📅 Fecha Inicio</label>
+                    <input type="date" id="fecha-inicio" class="filter-select">
+                </div>
+                <div class="filter-group">
+                    <label for="fecha-fin">📅 Fecha Fin</label>
+                    <input type="date" id="fecha-fin" class="filter-select">
+                </div>
+                <button class="btn-primary" id="btn-aplicar-filtros">✨ Aplicar Filtros</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="header-section">
+                <h1>🏀 Partidos NBA</h1>
+                <p class="subtitle">Calendario y resultados de todos los partidos</p>
+            </section>
+
+            <section class="games-section">
+                <div id="partidos-list" class="games-list">
+                    <div class="loading">Cargando partidos...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 NBA Analytics Pro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>

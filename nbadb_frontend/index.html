@@ -1,0 +1,237 @@
+ARCHIVO 1: index.html
+================================================================================
+
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Analytics Pro - Dashboard Espectacular</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="dashboard">
+    <!-- Navbar Espectacular -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="https://a.espncdn.com/i/teamlogos/nba/500/nba.png" alt="NBA Logo">
+                <span>Analytics Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Dashboard</a></li>
+                <li class="nav-item"><a href="equipos.html" class="nav-link">Equipos</a></li>
+                <li class="nav-item"><a href="partidos.html" class="nav-link">Partidos</a></li>
+                <li class="nav-item"><a href="clasificacion.html" class="nav-link">Clasificación</a></li>
+                <li class="nav-item"><a href="estadisticas.html" class="nav-link">Estadísticas</a></li>
+                <li class="nav-item"><a href="predicciones.html" class="nav-link">Predicciones</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn" title="Cambiar tema">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Filtros Espectacular -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>⚙️ Filtros Avanzados</h3>
+            </div>
+            <div class="sidebar-content">
+                <!-- Temporada -->
+                <div class="filter-group">
+                    <label for="temporada-select">🏆 Temporada</label>
+                    <select id="temporada-select" class="filter-select">
+                        <option value="">Cargando...</option>
+                    </select>
+                </div>
+
+                <!-- Conferencia -->
+                <div class="filter-group">
+                    <label for="conferencia-filter">🏀 Conferencia</label>
+                    <select id="conferencia-filter" class="filter-select">
+                        <option value="">Todas</option>
+                        <option value="1">Eastern</option>
+                        <option value="2">Western</option>
+                    </select>
+                </div>
+
+                <!-- Rango de Fechas -->
+                <div class="filter-group">
+                    <label for="fecha-inicio">📅 Fecha Inicio</label>
+                    <input type="date" id="fecha-inicio" class="filter-select">
+                </div>
+
+                <div class="filter-group">
+                    <label for="fecha-fin">📅 Fecha Fin</label>
+                    <input type="date" id="fecha-fin" class="filter-select">
+                </div>
+
+                <!-- Rango PPG -->
+                <div class="filter-group">
+                    <label>📊 PPG (Puntos por Juego)</label>
+                    <div class="range-inputs">
+                        <input type="number" id="ppg-min" class="filter-select" placeholder="Mín" value="0">
+                        <span class="range-separator">-</span>
+                        <input type="number" id="ppg-max" class="filter-select" placeholder="Máx" value="150">
+                    </div>
+                </div>
+
+                <!-- Confianza Mínima -->
+                <div class="filter-group">
+                    <label for="confianza-min">🎯 Confianza Mínima (%)</label>
+                    <input type="range" id="confianza-min" class="filter-select" min="0" max="100" value="0">
+                    <span class="range-value" id="confianza-value">0%</span>
+                </div>
+
+                <!-- Botón Aplicar -->
+                <button class="btn-primary" id="btn-aplicar-filtros">✨ Aplicar Filtros</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header Espectacular -->
+            <section class="header-section">
+                <h1>🏀 NBA Analytics Pro</h1>
+                <p class="subtitle">⚡ Dashboard profesional con análisis avanzado, gráficas interactivas y predicciones ML</p>
+            </section>
+
+            <!-- Stats Cards Espectacular -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🏀</div>
+                    <div class="stat-content">
+                        <h3 id="total-equipos">0</h3>
+                        <p>Equipos Activos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏟️</div>
+                    <div class="stat-content">
+                        <h3 id="total-arenas">0</h3>
+                        <p>Arenas Oficiales</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-content">
+                        <h3 id="total-partidos">0</h3>
+                        <p>Partidos Registrados</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🤖</div>
+                    <div class="stat-content">
+                        <h3 id="total-predicciones">0</h3>
+                        <p>Predicciones ML</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gráficas Avanzadas - Fila 1 -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h2>📈 Tendencia de PPG (Top 5 Equipos)</h2>
+                    <div style="height: 350px; position: relative;">
+                        <canvas id="ppgTrendChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h2>🎯 Comparación de Conferencias</h2>
+                    <div style="height: 350px; position: relative;">
+                        <canvas id="conferenceChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gráficas Avanzadas - Fila 2 -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h2>✅ Precisión de Predicciones</h2>
+                    <div style="height: 350px; position: relative;">
+                        <canvas id="predictionAccuracyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h2>📊 Distribución de Puntos</h2>
+                    <div style="height: 350px; position: relative;">
+                        <canvas id="pointsDistributionChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gráficas Clásicas -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h2>🏆 Top 10 Equipos por PPG</h2>
+                    <div style="height: 350px; position: relative;">
+                        <canvas id="topEquiposChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h2>🥇 Distribución de Victorias</h2>
+                    <div style="height: 350px; position: relative;">
+                        <canvas id="victoriasChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparador Head-to-Head -->
+            <section class="h2h-section">
+                <h2 class="section-title">⚔️ Comparador Head-to-Head</h2>
+                <div class="h2h-container">
+                    <div class="h2h-selects">
+                        <select id="h2h-team1" class="filter-select">
+                            <option value="">Equipo 1</option>
+                        </select>
+                        <span class="h2h-vs">VS</span>
+                        <select id="h2h-team2" class="filter-select">
+                            <option value="">Equipo 2</option>
+                        </select>
+                        <button class="btn-primary" id="btn-compare-h2h">⚡ Comparar</button>
+                    </div>
+                    <div id="h2h-results" class="h2h-results">
+                        <p class="text-center">Selecciona dos equipos para comparar</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabla de Datos Detallada -->
+            <section class="data-table-section">
+                <h2 class="section-title">📊 Tabla de Partidos Detallada</h2>
+                <div id="data-table-container" class="data-table-container">
+                    <div class="loading">Cargando tabla de datos...</div>
+                </div>
+            </section>
+
+            <!-- Recent Games -->
+            <section class="recent-games">
+                <h2 class="section-title">🔥 Últimos Resultados</h2>
+                <div id="recent-games-list" class="games-list">
+                    <div class="loading">Cargando resultados...</div>
+                </div>
+            </section>
+
+            <!-- Top Teams -->
+            <section class="top-teams">
+                <h2 class="section-title">⭐ Equipos Destacados</h2>
+                <div id="top-teams-list" class="teams-grid">
+                    <div class="loading">Cargando equipos...</div>
+                </div>
+            </section>
+
+            <!-- Predictions -->
+            <section class="predictions">
+                <h2 class="section-title">🎯 Predicciones Destacadas</h2>
+                <div id="predictions-list" class="predictions-grid">
+                    <div class="loading">Cargando predicciones...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/app.js"></script>
+</body>
+</html>

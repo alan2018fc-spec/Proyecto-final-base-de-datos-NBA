@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicciones - NBA Analytics Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="predicciones">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="https://a.espncdn.com/i/teamlogos/nba/500/nba.png" alt="NBA Logo">
+                <span>Analytics Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="equipos.html" class="nav-link">Equipos</a></li>
+                <li class="nav-item"><a href="partidos.html" class="nav-link">Partidos</a></li>
+                <li class="nav-item"><a href="clasificacion.html" class="nav-link">Clasificación</a></li>
+                <li class="nav-item"><a href="estadisticas.html" class="nav-link">Estadísticas</a></li>
+                <li class="nav-item"><a href="predicciones.html" class="nav-link active">Predicciones</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn" title="Cambiar tema">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>⚙️ Filtros</h3>
+            </div>
+            <div class="sidebar-content">
+                <div class="filter-group">
+                    <label for="temporada-select">🏆 Temporada</label>
+                    <select id="temporada-select" class="filter-select">
+                        <option value="">Cargando...</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="confianza-filter">🎯 Confianza Mínima</label>
+                    <select id="confianza-filter" class="filter-select">
+                        <option value="0">Todas</option>
+                        <option value="50">50%+</option>
+                        <option value="60">60%+</option>
+                        <option value="70">70%+</option>
+                        <option value="80">80%+</option>
+                        <option value="90">90%+</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="btn-aplicar-filtros">✨ Aplicar Filtros</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="header-section">
+                <h1>🤖 Predicciones ML</h1>
+                <p class="subtitle">Predicciones de partidos basadas en Machine Learning</p>
+            </section>
+
+            <!-- Predictions Grid -->
+            <section class="predictions-section">
+                <div id="predictions-list" class="predictions-grid">
+                    <div class="loading">Cargando predicciones...</div>
+                </div>
+            </section>
+
+            <!-- Predictions Table -->
+            <section class="data-table-section">
+                <h2 class="section-title">📋 Tabla de Predicciones</h2>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Partido</th>
+                                <th>Resultado Predicho</th>
+                                <th>Confianza</th>
+                                <th>Acierto</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="predictions-tbody">
+                            <tr><td colspan="5" class="text-center">Cargando predicciones...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 NBA Analytics Pro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
